@@ -1,6 +1,5 @@
 " Infect vim with pathogen goodness!
 set nocompatible
-call pathogen#infect('~/.drush/vimrc/bundle/{}')
 call pathogen#infect('~/.vim/bundle/{}')
 call pathogen#helptags()
 
@@ -18,9 +17,6 @@ filetype plugin indent on
 set number
 set ruler
 syntax on
-
-" Default color scheme
-color ir_black
 
 " Directories for swp files
 set backupdir=~/.vim/backup
@@ -85,7 +81,6 @@ if has("autocmd")
   autocmd BufRead,BufNewFile {Rakefile,Capfile,Gemfile} set filetype=ruby
   " Vhost
   autocmd BufRead,BufNewFile *{vhost} set filetype=apache
-
   " Python
   autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 endif
@@ -97,13 +92,3 @@ map <Leader>n :NERDTreeToggle<CR>
 " Enable syntastic syntax checking
 let g:syntastic_enable_signs=1
 let g:syntastic_quiet_warnings=1
-
-if has("gui_running")
-  set colorcolumn=80
-  set gfn=Monospace\ 11
-
-  " Don't show toolbar and scrollbars
-  set guioptions-=T to
-  set guioptions-=L
-  set guioptions-=r
-endif
