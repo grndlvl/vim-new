@@ -1,6 +1,7 @@
 " Infect vim with pathogen goodness!
 set nocompatible
-call pathogen#infect('~/.vim/bundle/{}')
+call pathogen#infect('~/.vim/bundle/custom/{}')
+call pathogen#infect('~/.vim/bundle/vendor/{}')
 call pathogen#helptags()
 
 " Fix vim defaults

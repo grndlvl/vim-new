@@ -1,3 +1,4 @@
+current_directory := $(shell pwd)
 files := $(wildcard *.symlink)
 
 update:
@@ -6,7 +7,7 @@ update:
 
 install: update
 	for file in $(patsubst %.symlink,%,$(files)); do \
-		ln -s $$file.symlink ~/.$$file; \
+		ln -s $(current_directory)/$$file.symlink ~/.$$file; \
 	done
 
 uninstall:

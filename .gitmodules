@@ -1,3 +1,12 @@
 [submodule "vim.symlink/bundle/vendor/pathogen"]
 	path = vim.symlink/bundle/vendor/pathogen
 	url = https://github.com/tpope/vim-pathogen.git
+[submodule "vim.symlink/bundle/vendor/nerdcommenter"]
+	path = vim.symlink/bundle/vendor/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "vim.symlink/bundle/vendor/nerdtree"]
+	path = vim.symlink/bundle/vendor/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "vim.symlink/bundle/vendor/fugitive"]
+	path = vim.symlink/bundle/vendor/fugitive
+	url = https://github.com/tpope/vim-fugitive.git
