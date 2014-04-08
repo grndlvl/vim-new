@@ -10,3 +10,6 @@
 [submodule "vim.symlink/bundle/vendor/fugitive"]
 	path = vim.symlink/bundle/vendor/fugitive
 	url = https://github.com/tpope/vim-fugitive.git
+[submodule "vim.symlink/bundle/vendor/syntastic"]
+	path = vim.symlink/bundle/vendor/syntastic
+	url = https://github.com/scrooloose/syntastic.git
