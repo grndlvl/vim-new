@@ -37,6 +37,10 @@ set laststatus=2
 set showcmd " Show (partial) command in the status line
 set showmode
 
+" Color scheme
+set t_Co=256
+colorscheme Monokai
+
 " Statusline
 set statusline=%t\ "tail of the filename
 set statusline+=%h "help file flag
@@ -96,3 +100,8 @@ let g:syntastic_enable_signs=1
 let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
 let g:syntastic_ruby_exec = 'ruby1.9.1'
+
+" Load local vimrc
+if filereadable(expand("~/.vimrc.local"))
+  source ~/.vimrc.local
+endif

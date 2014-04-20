@@ -16,3 +16,6 @@
 [submodule "vim.symlink/bundle/vendor/snipmate"]
 	path = vim.symlink/bundle/vendor/snipmate
 	url = https://github.com/msanders/snipmate.vim.git
+[submodule "vim.symlink/bundle/vendor/vim-colorschemes"]
+	path = vim.symlink/bundle/vendor/vim-colorschemes
+	url = https://github.com/flazz/vim-colorschemes.git
