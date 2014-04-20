@@ -16,3 +16,12 @@
 [submodule "vim.symlink/bundle/vendor/vim-colorschemes"]
 	path = vim.symlink/bundle/vendor/vim-colorschemes
 	url = https://github.com/flazz/vim-colorschemes.git
+[submodule "vim.symlink/bundle/vendor/numbertoggle"]
+	path = vim.symlink/bundle/vendor/numbertoggle
+	url = https://github.com/jeffkreeftmeijer/vim-numbertoggle.git
+[submodule "vim.symlink/bundle/vendor/YouCompleteMe"]
+	path = vim.symlink/bundle/vendor/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule "vim.symlink/bundle/vendor/ultisnips"]
+	path = vim.symlink/bundle/vendor/ultisnips
+	url = https://github.com/SirVer/ultisnips.git
