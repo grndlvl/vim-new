@@ -119,6 +119,7 @@ let g:UltiSnipsEditSplit="vertical"
 
 " Airline configuration
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#branch#enabled = 1
 
 " Load local vimrc
 if filereadable(expand("~/.vimrc.local"))
