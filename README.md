@@ -1,11 +1,12 @@
 Dotfiles
 ========
 
-Installation
+Install
 ------------
 
-
 * Fork and clone this git repo.
-* Run `./install.sh` (you may need to `chmod +x`).
+* Run `make all`
 
-Originally forked from: [theunraveler](https://github.com/theunraveler/dotfiles)
+Uninstall
+------------
+* Run `make uninstall`
