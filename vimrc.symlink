@@ -38,8 +38,12 @@ set showcmd " Show (partial) command in the status line
 set showmode
 
 " Color scheme
+" http://en.wikipedia.org/wiki/File:Xterm_256color_chart.svg
 set t_Co=256
 colorscheme Monokai
+set colorcolumn=80
+" Popup menu
+highlight Pmenu ctermbg=237 ctermfg=226
 
 " Statusline
 set statusline=%t\ "tail of the filename
@@ -97,9 +101,21 @@ map <Leader>n :NERDTreeToggle<CR>
 
 " Enable syntastic syntax checking
 let g:syntastic_enable_signs=1
-let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_python_checkers = ['pep8']
 let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
 let g:syntastic_ruby_exec = 'ruby1.9.1'
+
+" Tab completetion pop up menu.
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-b>', '<Up>']
+
+" Tab completion snippets
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
+
+" If you want :UltiSnipsEdit to split your window
+let g:UltiSnipsEditSplit="vertical"
 
 " Load local vimrc
 if filereadable(expand("~/.vimrc.local"))
