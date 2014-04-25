@@ -43,7 +43,7 @@ set t_Co=256
 colorscheme Monokai
 set colorcolumn=80
 " Popup menu
-highlight Pmenu ctermbg=237 ctermfg=226
+highlight Pmenu ctermbg=237 ctermfg=226 guifg=#ffff00 guibg=#3c3d37
 
 " Statusline
 set statusline=%t\ "tail of the filename
