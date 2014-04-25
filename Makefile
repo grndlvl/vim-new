@@ -1,7 +1,22 @@
 current_directory := $(shell pwd)
-symlinks := $(wildcard *.symlink)
+explicit := gittemplate.symlink
+allsymlinks := $(wildcard *.symlink)
+symlinks := $(filter-out $(explicit),$(allsymlinks))
 
 all: install ycm
+
+gitntags:
+	sudo apt-get install exuberant-ctags
+	ln -s $(current_directory)/gittemplate.symlink ~/.gittemplate
+
+gitntags-uninstall:
+	sudo apt-get remove exuberant-ctags
+	rm -ir ~/.gittemplate
+
+show-symlinks:
+	for file in $(patsubst %.symlink,%,$(symlinks)); do \
+		echo $$file; \
+	done
 
 dependencies:
 	sudo apt-get install build-essential cmake

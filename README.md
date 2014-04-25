@@ -9,4 +9,14 @@ Install
 
 Uninstall
 ------------
+
 * Run `make uninstall`
+
+Todo
+------------
+
+* Add powerline
+* Add ctags
+* Add delimate
+* Add surround
+* Add vim-nerdtree-tabs
