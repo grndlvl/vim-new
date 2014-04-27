@@ -24,7 +24,7 @@ dependencies:
 	sudo apt-get install vim-gtk
 	sudo pip install pep8
 
-install: update dependencies
+install: uninstall update dependencies
 	for file in $(patsubst %.symlink,%,$(symlinks)); do \
 		ln -s $(current_directory)/$$file.symlink ~/.$$file; \
 	done
