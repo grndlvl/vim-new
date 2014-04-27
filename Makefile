@@ -30,8 +30,7 @@ install: update dependencies
 	done
 
 update:
-	git submodule init
-	git submodule update
+	git submodule update --init --recursive
 
 uninstall:
 	for file in $(patsubst %.symlink,%,$(symlinks)); do \
