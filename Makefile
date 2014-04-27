@@ -5,6 +5,8 @@ symlinks := $(filter-out $(explicit),$(allsymlinks))
 
 all: install ycm
 
+clean: uninstall
+
 gitntags:
 	sudo apt-get install exuberant-ctags
 	ln -s $(current_directory)/gittemplate.symlink ~/.gittemplate
@@ -24,7 +26,7 @@ dependencies:
 	sudo apt-get install vim-gtk
 	sudo pip install pep8
 
-install: uninstall update dependencies
+install: update dependencies
 	for file in $(patsubst %.symlink,%,$(symlinks)); do \
 		ln -s $(current_directory)/$$file.symlink ~/.$$file; \
 	done
