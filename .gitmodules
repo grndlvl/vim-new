@@ -34,3 +34,9 @@
 [submodule "vim.symlink/bundle/vendor/vim-nerdtree-tabs"]
 	path = vim.symlink/bundle/vendor/vim-nerdtree-tabs
 	url = https://github.com/jistr/vim-nerdtree-tabs.git
+[submodule "vim.symlink/bundle/vendor/vim-surround"]
+	path = vim.symlink/bundle/vendor/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "vim.symlink/bundle/vendor/vim-multiple-cursors"]
+	path = vim.symlink/bundle/vendor/vim-multiple-cursors
+	url = https://github.com/terryma/vim-multiple-cursors.git
