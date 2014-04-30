@@ -15,8 +15,5 @@ Uninstall
 Todo
 ------------
 
-* Add powerline
-* Add ctags
-* Add delimate
-* Add surround
-* Add vim-nerdtree-tabs
+* Get snippets to dynamically load for Drupal version [d.o Issue](https://drupal.org/node/2254703)
+* See about getting PyClewn up and running
