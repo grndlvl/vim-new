@@ -3,6 +3,7 @@ set nocompatible
 filetype off " required
 call pathogen#infect('~/.vim/bundle/custom/{}')
 call pathogen#infect('~/.vim/bundle/vendor/{}')
+call pathogen#infect('~/.vim/bundle/vendor/drupal-vimrc/bundle/{}')
 call pathogen#helptags()
 
 " Fix vim defaults
@@ -97,25 +98,27 @@ endif
 
 " NERDTree configuration
 let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
+let NERDTreeChDirMode=2
+
+" Adjust keybindings
 map <Leader>n :NERDTreeToggle<CR>
-
-" Enable syntastic syntax checking
-let g:syntastic_enable_signs=1
-let g:syntastic_python_checkers=['pep8']
-let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
-let g:syntastic_ruby_exec='ruby1.9.1'
-
-" Tab completetion pop up menu.
+nnoremap <C-Left> :bnext<CR>          " Change buffer
+nnoremap <C-Right> :bprevious<CR>     " Change buffer
+let g:NumberToggleTrigger="<F2>"
 let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion=['<C-b>', '<Up>']
-
-" Tab completion snippets
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger ="<s-tab>"
 
 " If you want :UltiSnipsEdit to split your window
 let g:UltiSnipsEditSplit="vertical"
+
+" Enable syntastic syntax checking
+let g:syntastic_enable_signs=1
+let g:syntastic_python_checkers=['pep8']
+let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
+let g:syntastic_ruby_exec='ruby1.9.1'
 
 " Airline configuration
 let g:airline#extensions#tabline#enabled = 1
