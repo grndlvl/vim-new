@@ -3,6 +3,7 @@
 function! drupal#BufEnter()
   if strlen(b:DrupalInfo.CORE)
     let l:drupal_ft='drupal' . b:DrupalInfo['CORE']
+    echo l:drupal_ft
     call UltiSnips#AddFiletypes(l:drupal_ft)
   endif
 endfun
@@ -54,6 +55,7 @@ endfun
 function! drupal#IniType(info_path) " {{{
   " Determine make files by their extensions. Parse .yml files.
   let ext = fnamemodify(a:info_path, ':e')
+
   if ext == 'make' || ext == 'build'
     return 'make'
   elseif ext == 'yml'

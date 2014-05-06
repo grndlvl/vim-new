@@ -21,9 +21,8 @@ show-symlinks:
 	done
 
 dependencies:
-	sudo apt-get install build-essential cmake
 	# We need to use vim-gtk to support copying to clipboard.
-	sudo apt-get install vim-gtk
+	sudo apt-get install build-essential cmake vim-gtk python-dev python-pip
 	sudo pip install pep8
 
 install: update dependencies
