@@ -3,7 +3,6 @@
 function! drupal#BufEnter()
   if strlen(b:DrupalInfo.CORE)
     let l:drupal_ft='drupal' . b:DrupalInfo['CORE']
-    echo l:drupal_ft
     call UltiSnips#AddFiletypes(l:drupal_ft)
   endif
 endfun
