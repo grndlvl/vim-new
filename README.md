@@ -30,7 +30,7 @@ Some key bindings
 * `CTRL+Left` - Prevoius buffer
 * `CTRL+Right` - Next buffer
 * `"+gY` - Copy selected text to clipboard
-* `"+gP` or `SHFT-CTRL-v in insert mode` - Paste selected text from keyboard
+* `"+gP` or `SHFT-CTRL-v in insert mode` - Paste selected text from clipboard
 * `F2` - Toggle line numbering from relative to normal
 
 Todo
