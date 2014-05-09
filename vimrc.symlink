@@ -3,7 +3,6 @@ set nocompatible
 filetype off " required
 call pathogen#infect('~/.vim/bundle/custom/{}')
 call pathogen#infect('~/.vim/bundle/vendor/{}')
-call pathogen#infect('~/.vim/bundle/vendor/drupal-vimrc/bundle/{}')
 call pathogen#helptags()
 
 " Fix vim defaults
