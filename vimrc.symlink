@@ -1,11 +1,12 @@
-" Infect vim with pathogen goodness!
+" Pathogen ---------------------------------------------------------------- {{{
 set nocompatible
 filetype off " required
 call pathogen#infect('~/.vim/bundle/custom/{}')
 call pathogen#infect('~/.vim/bundle/vendor/{}')
 call pathogen#helptags()
+" }}}
 
-" Fix vim defaults
+" Basic settings ---------------------------------------------------------- {{{
 set nocompatible
 set lazyredraw
 set ttyfast
@@ -14,112 +15,223 @@ set nostartofline " Make j/k respect the columns (after all, this is not a freak
 set modeline " Respect modeline of the file (the famous "vi:noai:sw=3 ts=6" on the beginning of the files)
 set hidden " Avoid asking to save before hiding
 set encoding=utf-8
+set showmatch
 
 filetype plugin indent on
-set number
 set ruler
 syntax on
 
 " Directories for swp files
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
+" }}}
 
-" Basic UI
+" Basic UI ---------------------------------------------------------------- {{{
 set visualbell
 set ruler
 set title
 set titlestring=%f%(\ [%M]%) " Show file name at the title
-set numberwidth=1
-set number
 set relativenumber
+set numberwidth=1
 set report=2
 set laststatus=2
 set showcmd " Show (partial) command in the status line
 set showmode
+" }}}
 
-" Color scheme
+" Coetor scheme ------------------------------------------------------------ {{{
 " http://en.wikipedia.org/wiki/File:Xterm_256color_chart.svg
 set t_Co=256
 colorscheme Monokai
 set colorcolumn=80
 " Popup menu
 highlight Pmenu ctermbg=237 ctermfg=226 guifg=#ffff00 guibg=#3c3d37
+" }}}
 
-" Statusline
-set statusline=%t\ "tail of the filename
-set statusline+=%h "help file flag
-set statusline+=%m "modified flag
-set statusline+=%r "read only flag
-set statusline+=%y "filetype
-set statusline+=%= "left/right separator
-set statusline+=%c, "cursor column
-set statusline+=%l/%L "cursor line/total lines
-set statusline+=\ %P "percent through file
-
-" Whitespace stuff
+" Whitespace stuff -------------------------------------------------------- {{{
 set nowrap
 set tabstop=2
 set shiftwidth=2
+set shiftround
 set softtabstop=2
 set list listchars=tab:\ \ ,trail:·
 set expandtab
+" }}}
 
-" Matching
-set showmatch
-
-" Searching
+" Searching --------------------------------------------------------------- {{{
 set hlsearch " Highlight matched regexp
 set incsearch " Search all instances
 set ignorecase
 set smartcase
 set gdefault " Make regexp matches everything, instead of the first one
+" }}}
 
-" Tab completion
+" Tab completion ---------------------------------------------------------- {{{
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.class,.svn,vendor/gems/,CVS*
+" }}}
 
-if has("autocmd")
-  " Remember last location in file
-  au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
-    \| exe "normal g'\"" | endif
+" Statusline (Overwritten by airline) ------------------------------------- {{{
+"set statusline=%t\ "tail of the filename
+"set statusline+=%h "help file flag
+"set statusline+=%m "modified flag
+"set statusline+=%r "read only flag
+"set statusline+=%y "filetype
+"set statusline+=%= "left/right separator
+"set statusline+=%c, "cursor column
+"set statusline+=%l/%L "cursor line/total lines
+"set statusline+=\ %P "percent through file
+" }}}
 
-  " Markdown
-  autocmd BufRead,BufNewFile *.{md,mkd,markdown} set filetype=markdown
-  " Ruby
-  autocmd BufRead,BufNewFile {Rakefile,Capfile,Gemfile} set filetype=ruby
-  " Vhost
-  autocmd BufRead,BufNewFile *{vhost} set filetype=apache
-  " Python
-  autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
-endif
-
-" NERDTree configuration
+" NERDTree configuration -------------------------------------------------- {{{
 let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
 let NERDTreeChDirMode=2
+let NERDTreeClose=1
+" }}}
+
+" Mappings ---------------------------------------------------------------- {{{
+let mapleader="\\"
+let maplocalleader=","
 
 " Adjust keybindings
-map <Leader>n :NERDTreeToggle<CR>
-map <C-Left> :bprevious<CR>
-map <C-Right> :bnext<CR>
-let g:NumberToggleTrigger="<F2>"
-let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion=['<C-b>', '<Up>']
+noremap <leader>n :NERDTreeToggle<CR>
+" Move line down
+nnoremap <leader>- ddp
+" Move line up
+nnoremap <leader>_ ddkkp
+" Delete current line
+nnoremap <leader>d dd
+" Delete current line and insert in place
+nnoremap <leader>c ddO
+" Capitalize current word
+inoremap <c-u> <esc>viwUi
+" Open the vimrc in place
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+" Source the vimrc for changes to take affect
+nnoremap <leader>sv :source $MYVIMRC<cr>
+" Wrap current word with "
+vnoremap <leader>" <esc>`<i"<esc>`>la"<esc>
+" Wrap current word with '
+vnoremap <leader>' <esc>`<i'<esc>`>la'<esc>
+" Switch bufferers
+noremap <c-left> :bprevious<cr>
+noremap <c-right> :bnext<cr>
+" In next parenthesis
+"onoremap in( :<c-u>normal! f(vi(<cr>
+"" In last parenthesis
+"onoremap il( :<c-u>normal! F)vi(<cr>
+"" Around next parenthesis
+"onoremap an( :<c-u>normal! f(va(<cr>
+"" Around next parenthesis
+"onoremap al( :<c-u>normal! F)va(<cr>
+"" In next brackets
+"onoremap in{ :<c-u>normal! f{vi{<cr>
+"" In last brackets
+"onoremap il{ :<c-u>normal! F}vi{<cr>
+"" Around next brackets
+"onoremap an{ :<c-u>normal! f{va{<cr>
+"" Around next brackets
+"onoremap al{ :<c-u>normal! F}va{<cr>
+" Inside next email address
+onoremap in@ :<c-u>execute "normal! /\S*@\w*\.\w*\r:nohlsearch\rviW"<cr>
+" }}}
+
+" Abbreviations ----------------------------------------------------------- {{{
+iabbrev @@ delaigle.jonathan@gmail.com
+iabbrev ccopy Copyright 2015 Jonathan DeLaigle, all rights reserved.
+iabbrev ssig --<cr>Jonathan DeLaigle<cr>http://www.grndlvl.com<cr>delaigle.jonathan@gmail.com
+iabbrev adn and
+iabbrev teh the
+iabbrev tehn then
+" }}}
+
+" NumberToggle configuration ---------------------------------------------- {{{
+let g:NumberToggleTrigger="<f2>"
+" }}}
+
+" YouCompleteMe configuration --------------------------------------------- {{{
+let g:ycm_key_list_select_completion=['<c-n>', '<down>']
+let g:ycm_key_list_previous_completion=['<c-b>', '<up>']
+let g:ycm_use_ultisnips_completer = 0
+" }}}
+
+" Utilisnips configuration ------------------------------------------------ {{{
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger ="<s-tab>"
-
-" If you want :UltiSnipsEdit to split your window
 let g:UltiSnipsEditSplit="vertical"
+" }}}
 
-" Enable syntastic syntax checking
+" Syntastic configuration ------------------------------------------------- {{{
 let g:syntastic_enable_signs=1
 let g:syntastic_python_checkers=['pep8']
 let g:syntastic_php_checkers=['php', 'phpcs', 'phpmd']
 let g:syntastic_ruby_exec='ruby1.9.1'
+" }}}
 
-" Airline configuration
+" Airline configuration --------------------------------------------------- {{{
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#branch#enabled = 1
+let g:airline_powerline_fonts=1
+" }}}
+
+" Filetype specific settings ---------------------------------------------- {{{
+let g:LargeFile = 1024 * 1024 * 10
+if has("autocmd")
+  augroup general_filetypes
+    autocmd!
+
+    " Remember last location in file
+    autocmd BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$")
+      \| exe "normal g'\"" | endif
+
+    " Ruby
+    autocmd BufRead,BufNewFile {Rakefile,Capfile,Gemfile} set filetype=ruby
+    " Vhost
+    autocmd BufRead,BufNewFile *{vhost} set filetype=apache
+    " Python
+    autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
+  augroup END
+
+  " Handle files largeer than 10mb
+  augroup large_files
+    autocmd!
+    autocmd BufReadPre * let f=getfsize(expand("<afile>")) | if f > g:LargeFile || f == -2 | call LargeFile() | endif
+    augroup END
+
+  augroup filetype_html
+    autocmd!
+    autocmd FileType html nnoremap <buffer> <localleader>f Vatzf
+  augroup END
+
+  augroup filetype_markdown
+    autocmd!
+    autocmd BufRead,BufNewFile *.{md,mkd,markdown} set filetype=markdown
+    " Change inside heading
+    autocmd FileType markdown onoremap ih :<c-u>execute "normal! ?^[=-][=-]\\+$\r:nohlsearch\rkvg_"<cr>
+    " Change aroung heading
+    autocmd FileType markdown onoremap ah :<c-u>execute "normal! ?^[=-][=-]\\+$\r:nohlsearch\rg_vk0"<cr>
+  augroup END
+
+  augroup filetype_vim
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker foldlevelstart=0
+  augroup END
+endif
+" }}}
+
+function LargeFile()
+  " no syntax highlighting etc
+  set eventignore+=FileType
+  " save memory when other file is viewed
+  setlocal bufhidden=unload
+  " is read-only (write with :w new_filename)
+  setlocal buftype=nowrite
+  " no undo possible
+  setlocal undolevels=-1
+  " display message
+  autocmd VimEnter *  echo "The file is larger than " . (g:LargeFile / 1024 / 1024) . " MB, so some options are changed (see .vimrc for details)."
+endfunction
 
 " Load local vimrc
 if filereadable(expand("~/.vimrc.local"))
