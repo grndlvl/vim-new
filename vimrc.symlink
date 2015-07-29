@@ -59,11 +59,14 @@ set expandtab
 " }}}
 
 " Searching --------------------------------------------------------------- {{{
-set hlsearch " Highlight matched regexp
-set incsearch " Search all instances
+" Highlight matched regexp
+set hlsearch
+" Search all instances
+set incsearch
 set ignorecase
 set smartcase
-set gdefault " Make regexp matches everything, instead of the first one
+" Make regexp matches everything, instead of the first one
+set gdefault
 " }}}
 
 " Tab completion ---------------------------------------------------------- {{{
@@ -100,9 +103,9 @@ nnoremap <leader>- ddp
 " Move line up
 nnoremap <leader>_ ddkkp
 " Delete current line
-nnoremap <leader>d dd
+"nnoremap <leader>d dd
 " Delete current line and insert in place
-nnoremap <leader>c ddO
+"nnoremap <leader>c ddO
 " Capitalize current word
 inoremap <c-u> <esc>viwUi
 " Open the vimrc in place
@@ -110,9 +113,9 @@ nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 " Source the vimrc for changes to take affect
 nnoremap <leader>sv :source $MYVIMRC<cr>
 " Wrap current word with "
-vnoremap <leader>" <esc>`<i"<esc>`>la"<esc>
+"vnoremap <leader>" <esc>`<i"<esc>`>la"<esc>
 " Wrap current word with '
-vnoremap <leader>' <esc>`<i'<esc>`>la'<esc>
+"vnoremap <leader>' <esc>`<i'<esc>`>la'<esc>
 " Switch bufferers
 noremap <c-left> :bprevious<cr>
 noremap <c-right> :bnext<cr>
@@ -134,6 +137,16 @@ noremap <c-right> :bnext<cr>
 "onoremap al{ :<c-u>normal! F}va{<cr>
 " Inside next email address
 onoremap in@ :<c-u>execute "normal! /\S*@\w*\.\w*\r:nohlsearch\rviW"<cr>
+" Match trailing whitespaces
+"nnoremap <leader>w :match Error /\v\s+\n/<cr>
+" Clear matching
+"nnoremap <leader>W :match none<cr>
+" Make serch mapping to use "very non-magic" regex (:help magic)
+nnoremap / /\v
+" Stop highlighting searched words
+" nnoremap <leader>/ :nohlsearch<cr>
+" Recursively grep for the word under the cursor and display in quickfix window
+nnoremap <leader>g :execute "grep! -R " . shellescape(expand("<cWORD>")) . " ."<cr>:copen 10<cr>
 " }}}
 
 " Abbreviations ----------------------------------------------------------- {{{
@@ -220,7 +233,7 @@ if has("autocmd")
 endif
 " }}}
 
-function LargeFile()
+function! LargeFile()
   " no syntax highlighting etc
   set eventignore+=FileType
   " save memory when other file is viewed
