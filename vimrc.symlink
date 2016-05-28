@@ -104,6 +104,7 @@ map <C-Right> :bnext<CR>
 let g:NumberToggleTrigger="<F2>"
 let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion=['<C-b>', '<Up>']
+let g:ycm_path_to_python_interpreter="/usr/bin/python"
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger ="<s-tab>"
