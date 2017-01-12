@@ -84,7 +84,7 @@ if has("autocmd")
     \| exe "normal g'\"" | endif
 
   " Markdown
-  autocmd BufRead,BufNewFile *.{md,mkd,markdown} set filetype=markdown
+  autocmd BufRead,BufNewFile *.{md,mkd,markdown} set filetype=markdown|set wrap|set linebreak
   " Ruby
   autocmd BufRead,BufNewFile {Rakefile,Capfile,Gemfile} set filetype=ruby
   " Vhost
