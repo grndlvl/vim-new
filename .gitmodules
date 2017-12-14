@@ -40,3 +40,6 @@
 [submodule "vim.symlink/bundle/vendor/vim-multiple-cursors"]
 	path = vim.symlink/bundle/vendor/vim-multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors.git
+[submodule "vim.symlink/bundle/vendor/elm-vim"]
+	path = vim.symlink/bundle/vendor/elm-vim
+	url = https://github.com/ElmCast/elm-vim.git
