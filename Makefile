@@ -22,8 +22,7 @@ show-symlinks:
 
 dependencies:
 	# We need to use vim-gtk to support copying to clipboard.
-	sudo apt-get install build-essential cmake vim-gtk python-dev python-pip
-	sudo pip install pep8
+	sudo apt-get install build-essential cmake vim-nox python3-dev
 
 install: update dependencies
 	for file in $(patsubst %.symlink,%,$(symlinks)); do \
@@ -40,4 +39,4 @@ uninstall:
 
 # Compile YCM.
 ycm: dependencies
-	cd ./vim.symlink/bundle/vendor/YouCompleteMe && ./install.sh
+	cd ./vim.symlink/bundle/vendor/YouCompleteMe && python3 install.py --all
